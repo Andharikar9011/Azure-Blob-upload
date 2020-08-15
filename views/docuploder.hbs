@@ -1,0 +1,32 @@
+<h1>Upload Douments</h1>
+<form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+<div><label for="userid">Email Id</label><br><br>
+  <input type="text" id="uid" name="userid"><br><br>
+  <select id="filetype" name="Type"><br>
+    <option value="Document">Document</option></div><br><br>
+  </select>
+  <h2>Select an Document to upload:</h2>
+  <div class="upload-container"><input id="file-picker" type="file" name="file"></div>
+  <div><input type="submit" value="Upload Pdf"></div>
+</form>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const message = document.getElementById('message');
+    const picker = document.getElementById('file-picker');
+
+    document.getElementById('upload-form').addEventListener('submit', (e) => {
+
+      message.innerText = '';
+
+      if(!picker.files.length) {
+        message.innerText = 'Please select an Pdf to upload.';
+        e.preventDefault();
+        return false;
+      }
+    });
+
+  });
+</script>
