@@ -47,15 +47,21 @@ router.get('/', (req, res, next) => {
   });
 
 });
-
-
+router.get('/imageuploder',(req,res)=>{
+  console.log(req.query);
+  res.render('imageuploder',{userid:req.query.userid,orgname:req.query.Orgname});
+})
 router.get('/docuploder',(req,res)=>{
-  res.render('docuploder');
+  console.log(req.query);
+  res.render('docuploder',{userid:req.query.userid,orgname:req.query.Orgname});
 })
 router.get('/pdfuploder',(req,res)=>{
-  res.render('pdfuploder');
+  console.log(req.query);
+  res.render('pdfuploder',{userid:req.query.userid,orgname:req.query.Orgname});
 })
 router.get('/videouploder',(req,res)=>{
-  res.render('videouploder');
+  console.log(req.query);
+  res.render('videouploder',{userid:req.query.userid,orgname:req.query.Orgname});
 })
+
 module.exports = router;
